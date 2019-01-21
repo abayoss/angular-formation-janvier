@@ -14,10 +14,25 @@
   <!-- <button class="btn btn-primary" (click) = 'addCourse()' >add </button> -->
   <ul class="list-group">
     <li class="list-group-item" *ngFor = "let course of courses">
+      <i class="fa mr-2"  (click)="favorit(course);" [ngClass]="{
+        'fa-star' : course.stared,
+        'fa-star-o' : !course.stared
+      }"></i>
+
+      <!-- votes -->
+      <app-votes [like]= "course.vote.likes" [disLike] = "course.vote.disLikes"
+      (changeV) = "changeV(course, $event)">
+      </app-votes>
+
+      {{course.vote.likes}} : likes
+      {{course.vote.disLikes}} : disLikes
+      <!-- power -->
       <button (click)="tooglePower(course);" class="btn btn-success btn-sm" [ngClass]="{
-        'btn-success' : course.active,
-        'btn-danger' : !course.active
-      }"><i class="fa fa-power-off"></i></button>
+          'btn-success' : course.active,
+          'btn-danger' : !course.active
+        }">
+        <i class="fa fa-power-off"></i>
+      </button>
        {{ course.title }} ||  {{ course.id }}
       <div class="text-right">
         <button (click)="editCourse(course)" class="btn btn-warning btn-sm mr-1">
@@ -55,6 +70,9 @@
       <app-content2></app-content2>
     </div>
   </div>
+
+  <app-posts></app-posts>
+
   <div class="row border">
     <app-footer></app-footer>
   </div>

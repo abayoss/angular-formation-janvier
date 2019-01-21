@@ -1,0 +1,20 @@
+<div class="form-group">
+    <input type="text" [(ngModel)]="myPosts.title" class="form-control mb-2 " name='title' placeholder="title">
+    <input type="text" [(ngModel)]="myPosts.body" class="form-control mb-2" name='Body'placeholder="body">
+    <button (click)="addPost()" class="btn btn-primary btn-block">
+      <i class="fa fa-paper-plane"></i> send text
+  </button>
+</div>
+
+<div class="row" id='second'>
+  <div class="col-md-4" *ngFor="let myPosts of myPosts">
+    <div class="card">
+      <img class="card-img-top" src="https://placeimg.com/640/480/any" [alt]="myPosts.title">
+      <div class="card-body">
+        <h4 class="card-title">{{myPosts.title}}</h4>
+        <p class="card-text">{{myPosts.body}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
