@@ -1,11 +1,15 @@
-<button (click)="addLike();" class="btn-sm mr-2" [ngClass]="{
-  'btn btn-primary ' : like
-  }">
-  <i class="fa fa-thumbs-up"></i>{{ like }}
-</button>
+<div class="text-right">
+  <button (click)="addLike();" class="btn btn-sm mr-2" [ngClass]="{
+    'btn btn-primary' : like,
+    'btn btn-secondary' : like == 0
+    }">
+    <i class="fa fa-thumbs-up"></i> {{ like }}
+  </button>
 
-<button (click)="addDisLike();" class=" btn-sm mr-2" [ngClass]="{
-  'btn btn-danger ' : disLike
-  }">
-  <i class="fa fa-thumbs-down"></i>{{ disLike }}
-</button>
+  <button (click)="addDisLike();" class="btn btn-sm mr-2" [ngClass]="{
+    'btn btn-danger' : disLike,
+    'btn btn-secondary' : disLike == 0
+    }">
+    <i class="fa fa-thumbs-down"></i> {{ disLike }}
+  </button>
+</div>

@@ -12,7 +12,11 @@ export class VotesComponent implements OnInit {
   @Input('disLike') disLike = 0;
 
   // tslint:disable-next-line:no-output-rename
-  @Output('changeV') changeV  = new EventEmitter();
+  @Output('changeVoteLike') changeVoteLike = new EventEmitter();
+
+  // tslint:disable-next-line:no-output-rename
+  @Output('changeVoteDislike') changeVoteDislike = new EventEmitter();
+
 
   constructor() { }
 
@@ -20,10 +24,10 @@ export class VotesComponent implements OnInit {
   }
   addLike() {
     this.like ++;
-    this.changeV.emit({status: 1, value: this.like});
+    this.changeVoteLike.emit( this.like);
   }
   addDisLike() {
     this.disLike ++;
-    this.changeV.emit({status: 0, value: this.disLike});
+    this.changeVoteDislike.emit( this.disLike);
   }
 }
